@@ -1,0 +1,23 @@
+.projectCardGrid {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.projectCardContainer {
+  position: relative;
+  margin: 10px;
+
+  .cover {
+    position: absolute;
+    text-align: center;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    user-select: none;
+    z-index: 50;
+  }
+}

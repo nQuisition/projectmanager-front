@@ -1,0 +1,74 @@
+$spinnerColor: #555;
+$spinnerColorWhite: #f5f5f5;
+
+.spinner {
+  box-sizing: border-box;
+  display: inline-block;
+  border-color: rgba($spinnerColor, 0.25);
+  border-top-color: rgba($spinnerColor, 1);
+  border-style: solid;
+  border-radius: 50%;
+  animation: spinnerRotate 0.6s infinite linear;
+
+  &.white {
+    border-color: rgba($spinnerColorWhite, 0.25);
+    border-top-color: rgba($spinnerColorWhite, 1);
+  }
+}
+
+.tiny {
+  width: 19px;
+  height: 19px;
+  border-width: 3px;
+
+  &.absolute {
+    top: calc(50% - 8px);
+    left: calc(50% - 8px);
+  }
+}
+
+.small {
+  width: 26px;
+  height: 26px;
+  border-width: 4px;
+
+  &.absolute {
+    top: calc(50% - 13px);
+    left: calc(50% - 13px);
+  }
+}
+
+.medium {
+  width: 50px;
+  height: 50px;
+  border-width: 8px;
+
+  &.absolute {
+    top: calc(50% - 25px);
+    left: calc(50% - 25px);
+  }
+}
+
+.large {
+  width: 72px;
+  height: 72px;
+  border-width: 12px;
+
+  &.absolute {
+    top: calc(50% - 36px);
+    left: calc(50% - 36px);
+  }
+}
+
+.absolute {
+  position: absolute;
+}
+
+@keyframes spinnerRotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}

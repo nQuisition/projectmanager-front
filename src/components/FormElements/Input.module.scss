@@ -1,0 +1,116 @@
+@import "../../sass/variables.scss";
+
+$input-left-padding: 15px;
+$inner-annotation-font-size: 12px;
+
+.formInput {
+  width: 100%;
+  padding: 14px 0 14px $input-left-padding;
+  margin-top: 7px;
+  font-size: $default-font-size;
+  border: 1px solid $default-border-color-darker1;
+  border-radius: 5px;
+  transition: border 0.3s ease, padding 0.3s ease;
+
+  &.active {
+    padding-top: 22px;
+    padding-bottom: 6px;
+  }
+
+  &:focus {
+    border-color: $default-border-color-darker3;
+    outline: $default-border-color;
+  }
+}
+
+.formInputAnnotation {
+  font-size: $small-font-size;
+  padding: 4px 0px 4px 8px;
+  min-height: calc(#{$default-font-size} + 8px);
+}
+
+.inputWrapper {
+  position: relative;
+
+  &:before {
+    opacity: 0;
+    transform: translateY(10px);
+    position: absolute;
+    color: #5555ee;
+    content: "*";
+    font-family: monospace;
+    font-size: 18px;
+    top: 22px;
+    right: 18px;
+    transition: all 0.3s ease;
+  }
+
+  &:after {
+    opacity: 0;
+    transform: translateY(-10px);
+    position: absolute;
+    color: $success-color-darker;
+    content: "\f00c";
+    font-size: 14px;
+    font-family: $icon-font;
+    top: 22px;
+    right: 18px;
+    transition: all 0.3s ease;
+  }
+
+  &.required {
+    &:not(.complete):before {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &.error {
+    &:before {
+      opacity: 1;
+      transform: translateY(0);
+      color: $danger-color;
+    }
+
+    .formInput {
+      border-color: $danger-color;
+
+      &:focus {
+        border-color: $danger-color;
+      }
+    }
+
+    .placeholder {
+      color: $danger-color;
+    }
+  }
+
+  &.complete {
+    &:after {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .formInput {
+      border-color: $success-color-darker;
+    }
+
+    .placeholder {
+      color: $success-color-darker;
+    }
+  }
+
+  .placeholder {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    left: $input-left-padding;
+    font-size: $inner-annotation-font-size;
+    top: 10px;
+    transition: opacity 0.3s ease;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}
